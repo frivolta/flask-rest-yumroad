@@ -2,14 +2,16 @@ import os
 
 
 class BaseConfig:
-    pass
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class DevConfig(BaseConfig):
-    pass
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
+    SQLALCHEMY_ECHO = True
 
 
 class TestConfig(BaseConfig):
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
     TESTING = True
 
 

@@ -1,0 +1,73 @@
+{% extends "base_layout.html" %}
+{% block title %} {{ store.name }} {% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <h1> {{ store.name }} </h1>
+    </div>
+        {% for product_row in products.items | batch(3) %}
+            <div class="row mb-3">
+                {% for product in product_row %}
+                    <div class="col-4">
+                        <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="{{ product.primary_image_url }}" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text"> {{ product.description }} </p>
+                                </div>
+                                <div class="card-body">
+                                <a href="{{ url_for('product.details', product_id=product.id) }}" class="card-link btn btn-primary">
+                                    View Details
+                                </a>
+                                </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <nav aria-label="Product navigation" class="mb-5 mt-2">
+            <ul class="pagination justify-content-center">
+                {% if products.has_prev %}
+                    <li class="page-item">
+                        <a class="page-link" tabindex="-1"  href="{{ url_for('store.show', store_id=store.id, page=products.prev_num) }}">Previous</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                {% endif %}
+
+                {% for page in products.iter_pages(right_current=2) %}
+                    {% if page %}
+                        {% if page != products.page %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('store.show', store_id=store.id, page=page) }}">{{ page }}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">{{ page }}</a>
+                        </li>
+                        {% endif %}
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="ellipsis page-link">…</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+              {% if products.has_next %}
+                <li class="page-item">
+                    <a class="page-link" tabindex="-1"  href="{{ url_for('store.show', store_id=store.id, page=products.next_num) }}">Next</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Next</a>
+                </li>
+              {% endif %}
+          </ul>
+        </nav>
+    </div>
+  </div>
+{% endblock %}

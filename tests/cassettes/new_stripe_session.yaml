@@ -1,0 +1,83 @@
+interactions:
+- request:
+    body: payment_method_types[0]=card&client_reference_id=1&line_items[0][name]=Sherlock+Homes&line_items[0][description]=a+house+hunting+detective&line_items[0][amount]=500&line_items[0][currency]=usd&line_items[0][images][0]=https%3A%2F%2Fplacehold.co%2F600x400%3Ftext%3DSherlock+Homes&line_items[0][quantity]=1&mode=payment&success_url=http%3A%2F%2Flocalhost%2Fproduct%2F1%2Fpost_checkout%3Fsession_id%3D%7BCHECKOUT_SESSION_ID%7D%26status%3Dsuccess&cancel_url=http%3A%2F%2Flocalhost%2Fproduct%2F1%2Fpost_checkout%3Fsession_id%3D%7BCHECKOUT_SESSION_ID%7D%26status%3Dcancel
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '565'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Idempotency-Key:
+      - 77b60f6d-efd3-498d-acbc-7d770e668552
+      User-Agent:
+      - Stripe/v1 PythonBindings/2.48.0
+      X-Stripe-Client-Telemetry:
+      - '{"last_request_metrics": {"request_id": "req_s306l1Pv6yTyH5", "request_duration_ms":
+        9}}'
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version": "2.48.0", "lang": "python", "publisher": "stripe", "httplib":
+        "requests", "lang_version": "3.7.7", "platform": "Darwin-19.4.0-x86_64-i386-64bit",
+        "uname": "Darwin Sumukhs-MBP-2 19.4.0 Darwin Kernel Version 19.4.0: Wed Mar  4
+        22:28:40 PST 2020; root:xnu-6153.101.6~15/RELEASE_X86_64 x86_64 i386"}'
+    method: POST
+    uri: https://api.stripe.com/v1/checkout/sessions
+  response:
+    body:
+      string: "{\n  \"id\": \"cs_test_5wNXzCuphhbDNm68HOAyGzLxjjzgAKe6jlfVtbmhicKwuCWxugrQK8z8\",\n
+        \ \"object\": \"checkout.session\",\n  \"billing_address_collection\": null,\n
+        \ \"cancel_url\": \"http://localhost/product/1/post_checkout?session_id={CHECKOUT_SESSION_ID}\\u0026status=cancel\",\n
+        \ \"client_reference_id\": \"1\",\n  \"customer\": null,\n  \"customer_email\":
+        null,\n  \"display_items\": [\n    {\n      \"amount\": 500,\n      \"currency\":
+        \"usd\",\n      \"custom\": {\n        \"description\": \"a house hunting
+        detective\",\n        \"images\": [\n          \"https://placehold.co/600x400?text=Sherlock
+        Homes\"\n        ],\n        \"name\": \"Sherlock Homes\"\n      },\n      \"quantity\":
+        1,\n      \"type\": \"custom\"\n    }\n  ],\n  \"livemode\": false,\n  \"locale\":
+        null,\n  \"metadata\": {\n  },\n  \"mode\": \"payment\",\n  \"payment_intent\":
+        \"pi_0Gu2KpgfllZ6wsUOkgVuOAd7\",\n  \"payment_method_types\": [\n    \"card\"\n
+        \ ],\n  \"setup_intent\": null,\n  \"shipping\": null,\n  \"shipping_address_collection\":
+        null,\n  \"submit_type\": null,\n  \"subscription\": null,\n  \"success_url\":
+        \"http://localhost/product/1/post_checkout?session_id={CHECKOUT_SESSION_ID}\\u0026status=success\"\n}\n"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1089'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 14 Jun 2020 20:21:43 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      access-control-max-age:
+      - '300'
+      cache-control:
+      - no-cache, no-store
+      idempotency-key:
+      - 77b60f6d-efd3-498d-acbc-7d770e668552
+      original-request:
+      - req_eYZ3DBzonI25zQ
+      request-id:
+      - req_eYZ3DBzonI25zQ
+      stripe-should-retry:
+      - 'false'
+      stripe-version:
+      - '2018-09-06'
+    status:
+      code: 200
+      message: OK
+version: 1

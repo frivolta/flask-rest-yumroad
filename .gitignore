@@ -1,0 +1,24 @@
+.env
+.vscode
+*.pyc
+venv*
+env
+*.tags*
+__pycache__
+*.webassets-cache*
+
+.cache
+_cache/*
+*pytest_cache*
+
+# local development
+database.db
+*.db
+*.db-journal
+
+# testing
+.coverage
+
+# Visual Studio Code
+.vscode
+

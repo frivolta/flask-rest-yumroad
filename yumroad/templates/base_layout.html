@@ -1,0 +1,34 @@
+{% from "_macros.html" import render_flashes %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}{% endblock %} Yumroad
+        </title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% assets "common_css" %}
+            <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+        {% endassets %}
+
+        {% assets "common_js" %}
+            <script type="text/javascript" src="{{ ASSET_URL }}"> </script>
+        {% endassets %}
+
+        {% block custom_assets %}
+
+        {% endblock %}
+
+    </head>
+    <body>
+        {% include '_navbar.html' %}
+
+        {{ render_flashes() }}
+
+        <div class="container mt-3 mb-3">
+            {% block content %}{% endblock %}
+       </div>
+
+    </body>
+</html>
